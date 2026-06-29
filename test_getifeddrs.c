@@ -7,17 +7,17 @@
 #include <stdio.h>
 
 #ifndef NI_MAXHOST
-#define NI_MAXHOST 1025
+#define NI_MAXHOST 1025 // Maximum length of a hostname 
 #endif
 
 #ifndef NI_NUMERICHOST
 #define NI_NUMERICHOST 1
 #endif
 
-int main()
+int getInterfaceReseau()
 {
     struct ifaddrs *ifaddr, *ifa;
-    char host[NI_MAXHOST];
+    char ip[NI_MAXHOST];
 
     if (getifaddrs(&ifaddr) == -1) {
         perror("getifaddrs");
@@ -33,8 +33,8 @@ int main()
         if (family == AF_INET) {
             // IPv4 address
             getnameinfo(ifa->ifa_addr, sizeof(struct sockaddr_in),
-                        host, NI_MAXHOST, NULL, 0, NI_NUMERICHOST);
-            printf("Interface: %s\tAddress: %s\n", ifa->ifa_name, host);
+                        ip, NI_MAXHOST, NULL, 0, NI_NUMERICHOST);
+            printf("Interface: %s\tAddress: %s\n", ifa->ifa_name, ip);
         }
         if (ifa->ifa_addr->sa_family == AF_PACKET)
         {
