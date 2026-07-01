@@ -14,7 +14,7 @@
 #define NI_NUMERICHOST 1
 #endif
 
-int getInterfaceReseau()
+int main()
 {
     struct ifaddrs *ifaddr, *ifa;
     char ip[NI_MAXHOST];
