@@ -25,3 +25,5 @@ recvfrom()
 
 sendto()
 (avec sockaddr_ll)
+
+sudo ./ft_malcolm 10.0.2.4 08:00:27:9d:1c:5a 10.0.2.15  08:00:27:26:ed:89 

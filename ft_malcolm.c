@@ -201,13 +201,9 @@ int resolve_ip(const char *host, uint8_t out[4])
 int main(int argc, char *argv[])
 {
     int v = 0;
-    if (argc < 5 && argc > 6) {
-        fprintf(stderr, "Usage: %s <dest> <src> <dest_mac> <src_mac>\n", argv[0]);
+    if (argc < 5 || argc > 6) {
+        fprintf(stderr, "Usage: no valid arg <dest> <src> <dest_mac> <src_mac>\n");
         return 1;
-    }
-    if (argc == 6 && argv[5][0] == '-') {
-        if (argv[5][1] == 'v')
-            v = 1;
     }
 
     malcolm.dest = argv[3];
